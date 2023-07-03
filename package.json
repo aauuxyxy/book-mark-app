@@ -40,9 +40,13 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3",
-    "prisma": "^4.16.2"
+    "prisma": "^4.16.2",
+    "ts-node": "^10.9.1"
   },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
 }
