@@ -4,6 +4,7 @@ import prisma from '../../lib/prisma';
 import Router from 'next/router';
 import Link from 'next/link';
 import { ArticleProps } from '../../types/Article';
+import toast, { Toaster } from 'react-hot-toast';
 
 type Props = {
   articles: ArticleProps[];
@@ -16,13 +17,14 @@ async function removeBookMarked(id: number): Promise<void> {
       method: 'PUT',
     }
   );
-
+  toast.success('Bookmark successfully deleted', { duration: 3000 });
   Router.push('/mypage');
 }
 
 const Mypage = (props: Props) => {
   return (
     <div className='container mx-auto px-6 py-16'>
+      <Toaster />
       {props.articles.length > 0 ? (
         // ブックマークしている記事が存在する場合、記事の一覧を表示します
         <div className='mx-auto sm:w-8/12 lg:w-6/12 xl:w-[40%]'>
